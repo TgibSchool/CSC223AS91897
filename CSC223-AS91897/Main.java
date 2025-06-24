@@ -1,33 +1,39 @@
 
 /**
- * Write a description of class Main here.
+ * Main Body for AS91897 Project
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Thomas
+ * @version 3
  */
-public class Main
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class Main extends JFrame //implements ActionListener 
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Main
-     */
-    public Main()
-    {
-        // initialise instance variables
-        x = 0;
+    Canvas myCanvas;
+    final String fileName ="CharaterStanding1.png";
+    ImageIcon image = new ImageIcon(fileName);
+    int x = 10;
+    int y = 10;
+    public Main(){
+        setTitle("Gui3");
+        this.getContentPane().setPreferredSize(new Dimension(1000,1000));
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.toFront();
+        this.setVisible(true);
+        this.setResizable(false);
+        this.pack();
+        JPanel panel = new JPanel();
+        panel.setPreferredSize(new Dimension(1000,100));
+        myCanvas = new Canvas();
+        panel.add(myCanvas);
+        
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void paint (Graphics g) {
+        super.paint(g);
+        image.paintIcon(this,g,x,y);
+    
     }
+    
+    
 }
